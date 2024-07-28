@@ -9,4 +9,5 @@ namespace SmartSpent.Models
 
         [Required]
         public string? Description { get; set; }
+    }
 }
