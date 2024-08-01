@@ -29,9 +29,11 @@
                 {
                     <td>
                     @expense.Id 
-</td>
-<td>@expense.Value</td>
-<td>@expense.Description</td>
+                </td>
+                    <td>@expense.Value</td>
+                    <td>@expense.Description</td>
+                    <td><a asp-action="CreateEditExpense" asp-route-itemid="@expense.Id">Edit</a></td>
+                    <td><a asp-action="DeleteExpense" asp-route-itemid="@expense.Id">Delete</a></td>
                 }
             }
         </tbody>

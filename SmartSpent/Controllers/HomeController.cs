@@ -24,9 +24,16 @@ namespace SmartSpent.Controllers
             var allExpenses = _context.Expenses.ToList();
             return View(allExpenses);
         }
-        public IActionResult CreateEditExpense()
+        public IActionResult CreateEditExpense(int? id)
         {
             return View();
+        }
+
+        public IActionResult DeleteExpense(int? id) { 
+            var expenseInDb = _context.Expenses.SingleOrDefault(x => x.Id == id);
+            _context.Expenses.Remove(expenseInDb);
+            _context.SaveChanges();
+            return RedirectToAction("Expenses");
         }
 
         public IActionResult CreateEditExpenseForm(Expense model)
